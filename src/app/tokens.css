@@ -1,0 +1,77 @@
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2.25rem, 3vw + 1rem, 4rem); --text-title: clamp(1.5rem, 1vw + 1rem, 2rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --text-readout: clamp(2.5rem, 6vw, 6rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 24px; --section-gap-s: 96px; --section-gap: 128px; --section-gap-l: 192px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+  /* light is the default; the dark set sits under [data-theme="dark"] below */
+  --ground: #f1f3f6;
+  --panel: #ffffff;
+  --text: #10141a;
+  --muted: #4b5260;
+  --red: #c0261d;
+  --red-hover: #9e1c15;
+  --rule: #cdd2da; /* decorative hairlines only */
+  --steel: #3f5b7a; /* small secondary details, replaces the rose in dark */
+
+  --color-paper: var(--ground); --color-paper-2: var(--panel); --color-paper-3: var(--panel);
+  --color-ink: var(--text); --color-ink-2: var(--text); --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: color-mix(in oklab, var(--muted) 60%, transparent);
+  --color-accent: var(--red); --color-accent-ink: var(--panel); --color-focus: var(--red);
+  --color-rose: var(--steel);
+  --color-trace: color-mix(in oklab, var(--red) 30%, transparent);
+  --color-glow: transparent;
+  --color-grain: color-mix(in oklab, var(--text) 5%, transparent);
+
+  --font-display: var(--f-display), "Arial Narrow", "Helvetica Neue", sans-serif;
+  --font-body: var(--f-mono), ui-monospace, "Cascadia Mono", monospace; --font-outlier: var(--font-body);
+  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: 0em;
+  --trace-x: calc((100% - min(100%, var(--container))) / 2 + 28px);
+
+  /* theme-dependent details, so no component carries a colour or an effect of its own */
+  --color-line: color-mix(in oklab, var(--muted) 72%, transparent); /* strokes that carry meaning, 3:1 on a card */
+  --color-accent-hover: var(--red-hover);
+  --color-ring: color-mix(in oklab, var(--red) 28%, transparent);
+  --glow-trace: none;
+  --glow-dot: 0 0 0 3px var(--color-ring);
+  --glow-node: 0 0 0 3px var(--color-ring);
+  --glow-filter: none;
+  --dot-ring-w: 2;
+  --grain-opacity: 0;
+  --card-edge: var(--color-rule);
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --ground: #1a0c0f;
+  --panel: #24101a;
+  --text: #eee6da;
+  --muted: #9e8c86;
+  --red: #e04a3f;
+  --rose: #d19a9c;
+
+  --color-rule: color-mix(in oklab, var(--muted) 34%, transparent);
+  --color-accent-ink: var(--ground);
+  --color-rose: var(--rose);
+  --color-trace: color-mix(in oklab, var(--red) 38%, transparent);
+  --color-glow: color-mix(in oklab, var(--red) 55%, transparent);
+  --color-accent-hover: var(--text);
+  --color-ring: transparent;
+  --glow-trace: 0 0 8px var(--color-glow);
+  --glow-dot: 0 0 14px 3px var(--color-glow);
+  --glow-node: 0 0 10px var(--color-glow);
+  --glow-filter: drop-shadow(0 0 5px var(--color-glow));
+  --dot-ring-w: 0;
+  --grain-opacity: 0.4;
+  color-scheme: dark;
+}
+@media (max-width: 60rem) {
+  :root { --trace-x: 12px; }
+}
